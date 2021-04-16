@@ -4,13 +4,6 @@ import * as octokitRequest from 'https://cdn.skypack.dev/@octokit/request?dts';
 // Fetch from args
 const username = Deno.args[0]
 
-function listOut(array:string[]) {
-    // Iterate over a array and log the contents one by one
-    for (let index = 0; index < array.length; index++) {
-        console.log(array[index])
-    }
-}
-
 // Base url
 const baseUrl = "https://api.github.com"
 
@@ -56,8 +49,6 @@ for (let index = 0; index < `${username}@${new URL(baseUrl).hostname}`.length; i
     barrier += `-`
 }
 
-listOut([title, barrier])
-
 const points = {
     // Name not url
     "Name": user.name,
@@ -71,6 +62,8 @@ const points = {
     "Repos": user.public_repos,
     "Gists": user.public_gists,
 }
+
+console.log(`${title}\n${barrier}`)
 
 for (const [key, value] of Object.entries(points)) {
     if (value === null) { continue }
