@@ -34,5 +34,21 @@ for (let index = 0; index < `${username}@${new URL(baseUrl).hostname}`.length; i
 
 listOut([title, barrier])
 
+const points = {
+    // Name not url
+    "Name": user.data.name,
+    // Remove protocols from url
+    // "Blog": user.data.blog.replace(/(^\w+:|^)\/\//, ''),
+    "Blog": user.data.blog,
+    "Twitter": user.data.twitter_username,
+    // Its public anyway
+    "Location": user.data.location,
+    "Followers": user.data.followers,
+    "Repos": user.data.public_repos,
+    "Gists": user.data.public_gists,
+}
 
-console.log(`${username}@${new URL(baseUrl).hostname}`)
+for (const [key, value] of Object.entries(points)) {
+    if (value === null) { continue }
+    console.log(`${Colors.blue(key)}: ${value}`);
+}
