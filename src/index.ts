@@ -29,7 +29,7 @@ if (username === undefined) {
         }
     } catch {
         // gh isn't installed
-        console.log(`${Colors.red("No username was given, and gh is not installed")}\nTry passing your github username as the first argument`)
+        console.log(`${Colors.red("No username was given, and gh is not installed (or we dont have permission to use it)")}\nTry passing your github username as the first argument`)
         Deno.exit()
     }
 } else {
