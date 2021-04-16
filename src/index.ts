@@ -4,6 +4,12 @@ import * as octokitRequest from 'https://cdn.skypack.dev/@octokit/request?dts';
 // Fetch from args
 const username = Deno.args[0]
 
+// Exit out if username isn't given
+if (username === undefined) {
+    console.log("username arg undefined")
+    Deno.exit()
+}
+
 // Base url
 const baseUrl = "https://api.github.com"
 
