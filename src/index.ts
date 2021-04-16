@@ -10,6 +10,13 @@ if (username === undefined) {
     Deno.exit()
 }
 
+function listOut(array:string[]) {
+    // Iterate over a array and log the contents one by one
+    for (let index = 0; index < array.length; index++) {
+        console.log(array[index])
+    }
+}
+
 // Base url
 const baseUrl = "https://api.github.com"
 
@@ -25,7 +32,7 @@ for (let index = 0; index < `${username}@${new URL(baseUrl).hostname}`.length; i
     barrier += `-`
 }
 
-console.log(title, barrier)
+listOut([title, barrier])
 
 
 console.log(`${username}@${new URL(baseUrl).hostname}`)
