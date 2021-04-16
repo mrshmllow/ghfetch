@@ -23,8 +23,10 @@ const baseUrl = "https://api.github.com"
 // Fetch user info from github.com
 const user = await octokitRequest.request(`get /users/${username}`, {baseUrl: baseUrl})
 
+const color = Colors.blue
+
 // Create a title
-const title = `${Colors.blue(username)}@${Colors.blue(new URL(baseUrl).hostname)}`
+const title = `${color(username)}@${color(new URL(baseUrl).hostname)}`
 
 // Calculate barrier size for title
 let barrier = ""
@@ -50,5 +52,5 @@ const points = {
 
 for (const [key, value] of Object.entries(points)) {
     if (value === null) { continue }
-    console.log(`${Colors.blue(key)}: ${value}`);
+    console.log(`${color(key)}: ${value}`);
 }
