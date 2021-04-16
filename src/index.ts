@@ -4,12 +4,6 @@ import * as octokitRequest from 'https://cdn.skypack.dev/@octokit/request?dts';
 // Fetch from args
 const username = Deno.args[0]
 
-// Exit out if username isn't given
-if (username === undefined) {
-    console.log("username arg undefined")
-    Deno.exit()
-}
-
 function listOut(array:string[]) {
     // Iterate over a array and log the contents one by one
     for (let index = 0; index < array.length; index++) {
@@ -20,13 +14,41 @@ function listOut(array:string[]) {
 // Base url
 const baseUrl = "https://api.github.com"
 
+let user;
+
 // Fetch user info from github.com
-const user = await octokitRequest.request(`get /users/${username}`, {baseUrl: baseUrl})
+if (username === undefined) {
+    // Try to grab from `gh` tool
+    try {
+        const p = Deno.run({cmd: ["gh", "api", "user"], stdout: "piped", stderr: "piped"})
+
+        const output = await p.output() // "piped" must be set
+        const outStr = new TextDecoder().decode(output);
+
+        p.close()
+        
+        try {
+            user = JSON.parse(outStr)
+        } catch {
+            // They arent logged into GH
+            console.log(`${Colors.red("gh returned non-json.")}\nTry simply passing your github username as the first argument`)
+            Deno.exit()
+        }
+    } catch {
+        // gh isn't installed
+        console.log(`${Colors.red("No username was given, and gh is not installed")}\nTry passing your github username as the first argument`)
+        Deno.exit()
+    }
+} else {
+    // Use octokitRequest if username isn't given
+    const response = await octokitRequest.request(`get /users/${username}`, {baseUrl: baseUrl})
+    user = response.data
+}
 
 const color = Colors.blue
 
 // Create a title
-const title = `${color(username)}@${color(new URL(baseUrl).hostname)}`
+const title = `${color(user.login)}@${color(new URL(baseUrl).hostname)}`
 
 // Calculate barrier size for title
 let barrier = ""
@@ -38,16 +60,16 @@ listOut([title, barrier])
 
 const points = {
     // Name not url
-    "Name": user.data.name,
+    "Name": user.name,
     // Remove protocols from url
     // "Blog": user.data.blog.replace(/(^\w+:|^)\/\//, ''),
-    "Blog": user.data.blog,
-    "Twitter": user.data.twitter_username,
+    "Blog": user.blog,
+    "Twitter": user.twitter_username,
     // Its public anyway
-    "Location": user.data.location,
-    "Followers": user.data.followers,
-    "Repos": user.data.public_repos,
-    "Gists": user.data.public_gists,
+    "Location": user.location,
+    "Followers": user.followers,
+    "Repos": user.public_repos,
+    "Gists": user.public_gists,
 }
 
 for (const [key, value] of Object.entries(points)) {
