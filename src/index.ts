@@ -46,12 +46,14 @@ if (username === undefined) {
             }
         } catch(err) {
             // They arent logged into GH
-            console.log(`${Colors.red("gh returned non-json.")}\nTry simply passing your github username as the first argument`)
+            console.log(`${Colors.red("gh returned non-json.")}\n${Colors.yellow("Try simply passing your github username as the first argument")}`)
+            console.log(err)
             Deno.exit()
         }
-    } catch {
+    } catch(err) {
         // gh isn't installed
-        console.log(`${Colors.red("No username was given, and gh is not installed (or we dont have permission to use it)")}\nTry passing your github username as the first argument`)
+        console.log(`${Colors.red("No username was given, and gh is not installed (or we dont have permission to use it)")}\n${Colors.yellow("Try passing your github username as the first argument")}`)
+        console.log(err)
         Deno.exit()
     }
 } else {
