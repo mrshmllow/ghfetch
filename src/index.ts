@@ -7,7 +7,18 @@ const username = Deno.args[0]
 // Base url
 const baseUrl = "https://api.github.com"
 
-let user;
+interface User {
+    Login: string,
+    Blog: string,
+    Twitter: string,
+    Location: string,
+    Followers: number,
+    Repos: number,
+    Gists: number,
+    avatarUrl: string
+}
+
+let user: User;
 
 // Fetch user info from github.com
 if (username === undefined) {
@@ -21,8 +32,19 @@ if (username === undefined) {
         p.close()
         
         try {
-            user = JSON.parse(outStr)
-        } catch {
+            const parsed = JSON.parse(outStr)
+            // Fit to User interface
+            user = {
+                Login: parsed.login,
+                Blog: parsed.blog,
+                Followers: parsed.followers,
+                Gists: parsed.gists,
+                Location: parsed.location,
+                Repos: parsed.repos,
+                Twitter: parsed.twitter,
+                avatarUrl: parsed.avatar_url
+            }
+        } catch(err) {
             // They arent logged into GH
             console.log(`${Colors.red("gh returned non-json.")}\nTry simply passing your github username as the first argument`)
             Deno.exit()
@@ -35,7 +57,17 @@ if (username === undefined) {
 } else {
     // Use octokitRequest if username isn't given
     const response = await octokitRequest.request(`get /users/${username}`, {baseUrl: baseUrl})
-    user = response.data
+    // Fit to User interface
+    user = {
+        Login: response.data.login,
+        Blog: response.data.blog,
+        Followers: response.data.followers,
+        Gists: response.data.gists,
+        Location: response.data.location,
+        Repos: response.data.repos,
+        Twitter: response.data.twitter,
+        avatarUrl: response.data.avatar_url
+    }
 }
 
 const color = Colors.blue
