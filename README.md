@@ -1,4 +1,4 @@
-# neogithub
+# GhFetch
  
 GhFetch is a command-line tool to fetch information about your github account written in TypeScript with deno.
 
