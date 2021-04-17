@@ -39,10 +39,10 @@ if (username === undefined) {
                 Login: parsed.login,
                 Blog: parsed.blog,
                 Followers: parsed.followers,
-                Gists: parsed.gists,
+                Gists: parsed.public_gists,
                 Location: parsed.location,
-                Repos: parsed.repos,
-                Twitter: parsed.twitter,
+                Repos: parsed.public_repos,
+                Twitter: parsed.twitter_username,
                 avatarUrl: parsed.avatar_url
             }
         } catch(err) {
@@ -65,10 +65,10 @@ if (username === undefined) {
         Login: response.data.login,
         Blog: response.data.blog,
         Followers: response.data.followers,
-        Gists: response.data.gists,
+        Gists: response.data.public_gists,
         Location: response.data.location,
-        Repos: response.data.repos,
-        Twitter: response.data.twitter,
+        Repos: response.data.public_repos,
+        Twitter: response.data.twitter_username,
         avatarUrl: response.data.avatar_url
     }
 }
