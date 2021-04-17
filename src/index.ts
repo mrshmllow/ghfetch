@@ -93,5 +93,12 @@ for (let index = 0; index < splitAscii.length; index++) {
     if (index === 0) { console.log(`${element}${spacing}${title}`); continue }
     if (index === 1) { console.log(`${element}${spacing}${barrier}`); continue }
 
-    console.log(`${element}`)
+    if (userKeys.length > index - 2) {
+        // Dont show avatarUrl
+        if (userKeys[index - 2] !== "avatarUrl") {
+            console.log(`${element}${spacing}${userKeys[index - 2]}: ${user[userKeys[index - 2]]}`)
+            continue
+        }
+    }
+    console.log(element)
 }
