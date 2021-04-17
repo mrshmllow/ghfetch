@@ -1,7 +1,7 @@
 import * as Colors from 'https://deno.land/std/fmt/colors.ts'
-import * as octokitRequest from 'https://cdn.skypack.dev/@octokit/request?dts'
 import { getImageStrings } from "https://x.nest.land/terminal_images@3.0.0/mod.ts"
 import { Command } from "https://deno.land/x/cliffy/command/mod.ts"
+import ky from 'https://cdn.skypack.dev/ky?dts';
 
 const { options } = await new Command()
     .option("-u, --username <string>", "Set the username of the user you want to query.")
@@ -46,17 +46,19 @@ if (options.username === undefined) {
         Deno.exit()
     }
 } else {
-    // Use octokitRequest if username isn't given
-    const response = await octokitRequest.request(`get /users/${options.username}`, {baseUrl: options.baseUrl})
+    // Use ky if username isn't given
+    const response = await ky.get(`${options.baseUrl}/users/${options.username}`)
+    const data = await response.json();
+
     user = {
-        Login: response.data.login,
-        Blog: response.data.blog,
-        Followers: response.data.followers,
-        Gists: response.data.public_gists,
-        Location: response.data.location,
-        Repos: response.data.public_repos,
-        Twitter: response.data.twitter_username,
-        avatarUrl: response.data.avatar_url
+        Login: data.login,
+        Blog: data.blog,
+        Followers: data.followers,
+        Gists: data.public_gists,
+        Location: data.location,
+        Repos: data.public_repos,
+        Twitter: data.twitter_username,
+        avatarUrl: data.avatar_url
     }
 }
 
