@@ -82,7 +82,6 @@ const userKeys = Object.keys(user)
 // Iterate user keys for some filtering
 for (let index = 0; index < userKeys.length; index++) {
     // Remove empty points
-    console.log(userKeys[index])
     if (user[userKeys[index]] === null || user[userKeys[index]] === "") {
         userKeys.splice(index, 1)
     }
