@@ -4,13 +4,12 @@ GhFetch is a command-line tool to fetch information about your github account wr
 
 - [Getting it on your computer](https://github.com/bwac2517/ghfetch#getting-it-on-your-computer)
   - [Installing with deno (Recommended)](https://github.com/bwac2517/ghfetch#installing-with-deno-recommended)
+  - [Binaries](https://github.com/bwac2517/ghfetch#binaries)
 - [Permissions](https://github.com/bwac2517/ghfetch#permissions)
 
 ## Getting it on your computer
 
-### Installing with deno (Recommended)
-
-#### Dependacies:
+#### dependencies:
  - [Deno](https://deno.land/#installation)
 
 ... and nothing else!
@@ -21,10 +20,19 @@ GhFetch is a command-line tool to fetch information about your github account wr
 RECOMMENEDED: `$ gh auth login` and login. This is because `ghfetch` takes advantage of the [`gh api`](https://cli.github.com/manual/gh_api) command to provide a out-of-the-box experience.
 (If you dont want to let `ghfetch` call github on your behalf, you can always use the `--username` flag, Also see the [persmissions section](https://github.com/bwac2517/ghfetch#permissions))
 
+### Installing with deno (Recommended)
+
 #### Install
 
 `$ deno install --unstable --allow-net --allow-run https://raw.githubusercontent.com/bwac2517/ghfetch/main/ghfetch.ts` will install the latest stable version.
 
+Check out the [persmissions section](https://github.com/bwac2517/ghfetch#permissions) for more info.
+
+You can now use `ghfetch` if your deno is correctly in your path.
+
+### Run it directly from the internet
+
+`$ deno run --unstable --allow-net --allow-run https://raw.githubusercontent.com/bwac2517/ghfetch/main/ghfetch.ts`
 Check out the [persmissions section](https://github.com/bwac2517/ghfetch#permissions) for more info.
 
 ### Binaries
