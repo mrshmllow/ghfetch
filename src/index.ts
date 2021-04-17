@@ -86,8 +86,13 @@ image.roundCorners(245)
 // Generate image ascii
 const ascii = await getImageStrings({ rawFile: await image.encode(), width: 35 })
 
+// Split image ascii into a string[]
 const splitAscii = ascii[0].split(/\r\n|\n\r|\n|\r/)
+
+// Spacing between the image and the text
 const spacing = "    "
+
+// Get a array of keys of the object
 const userKeys = Object.keys(user)
 
 // Iterate user keys for some filtering
