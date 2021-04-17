@@ -1,5 +1,6 @@
 import * as Colors from 'https://deno.land/std/fmt/colors.ts'
 import * as octokitRequest from 'https://cdn.skypack.dev/@octokit/request?dts';
+import { getImageStrings } from "https://x.nest.land/terminal_images@3.0.0/mod.ts";
 
 // Fetch from args
 const username = Deno.args[0]
@@ -83,24 +84,16 @@ for (let index = 0; index < `${username}@${new URL(baseUrl).hostname}`.length; i
     barrier += `-`
 }
 
-// Generate points
-const points = {
-    // Name not url
-    "Name": user.name,
-    // Remove protocols from url
-    // "Blog": user.data.blog.replace(/(^\w+:|^)\/\//, ''),
-    "Blog": user.blog,
-    "Twitter": user.twitter_username,
-    // Its public anyway
-    "Location": user.location,
-    "Followers": user.followers,
-    "Repos": user.public_repos,
-    "Gists": user.public_gists,
-}
+// Generate image ascii
+const ascii = await getImageStrings({ path: user.avatarUrl, width: 35 })
 
-console.log(`${title}\n${barrier}`)
+// Draw to terminal
+const splitAscii = ascii[0].split(/\r\n|\n\r|\n|\r/)
+const spacing = "    "
+for (let index = 0; index < splitAscii.length; index++) {
+    const element = splitAscii[index]
+    if (index === 0) { console.log(`${element}${spacing}${title}`); continue }
+    if (index === 1) { console.log(`${element}${spacing}${barrier}`); continue }
 
-for (const [key, value] of Object.entries(points)) {
-    if (value === null || value === "") { continue }
-    console.log(`${color(key)}: ${value}`);
+    console.log(`${element}`)
 }
