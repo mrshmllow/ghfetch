@@ -76,7 +76,7 @@ if (username === undefined) {
 const color = Colors.blue
 
 // Create a title
-const title = `${color(user.login)}@${color(new URL(baseUrl).hostname)}`
+const title = `${color(user.Login)}@${color(new URL(baseUrl).hostname)}`
 
 // Calculate barrier size for title
 let barrier = ""
