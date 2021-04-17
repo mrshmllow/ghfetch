@@ -27,6 +27,10 @@ RECOMMENEDED: `$ gh auth login` and login. This is because `ghfetch` takes advan
 
 Check out the [persmissions section](https://github.com/bwac2517/ghfetch#permissions) for more info.
 
+### Binaries
+
+You could probably find some binaries for you to use at https://github.com/bwac2517/ghfetch/releases
+
 ## Permissions
 
 The recommeneded [permissions](https://deno.land/manual@v1.9.0/getting_started/permissions) are: `--allow-net`, `--allow-run`.
