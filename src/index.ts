@@ -80,7 +80,8 @@ const title = `${color(user.Login)}@${color(new URL(baseUrl).hostname)}`
 
 // Calculate barrier size for title
 let barrier = ""
-for (let index = 0; index < `${username}@${new URL(baseUrl).hostname}`.length; index++) {
+// Start at 1
+for (let index = 1; index < `${username}@${new URL(baseUrl).hostname}`.length; index++) {
     barrier += `-`
 }
 
