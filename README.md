@@ -2,6 +2,8 @@
  
 ghfetch is a command-line tool to fetch information about your github account written in TypeScript with deno.
 
+Why? Because yes.
+
 - [Getting it on your computer](https://github.com/bwac2517/ghfetch#getting-it-on-your-computer)
   - [Prerequisites](https://github.com/bwac2517/ghfetch#Prerequisites)
   - [Installing](https://github.com/bwac2517/ghfetch#installing-with-deno-recommended)
