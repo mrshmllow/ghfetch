@@ -5,6 +5,7 @@ import {Image} from 'https://deno.land/x/imagescript/mod.ts'
 import ky from 'https://cdn.skypack.dev/ky?dts';
 
 const { options } = await new Command()
+    .version("0.0.1")
     .option("-u, --username <string>", "Set the username of the user you want to query.")
     .option("-b, --base-url <string>", "Set the base github api url.", { default: "https://api.github.com" })
     .parse(Deno.args);
