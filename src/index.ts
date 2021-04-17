@@ -8,18 +8,7 @@ const username = Deno.args[0]
 // Base url
 const baseUrl = "https://api.github.com"
 
-interface User {
-    Login: string,
-    Blog: string,
-    Twitter: string,
-    Location: string,
-    Followers: number,
-    Repos: number,
-    Gists: number,
-    avatarUrl: string
-}
-
-let user: User;
+let user
 
 // Fetch user info from github.com
 if (username === undefined) {
@@ -34,7 +23,6 @@ if (username === undefined) {
         
         try {
             const parsed = JSON.parse(outStr)
-            // Fit to User interface
             user = {
                 Login: parsed.login,
                 Blog: parsed.blog,
@@ -60,7 +48,6 @@ if (username === undefined) {
 } else {
     // Use octokitRequest if username isn't given
     const response = await octokitRequest.request(`get /users/${username}`, {baseUrl: baseUrl})
-    // Fit to User interface
     user = {
         Login: response.data.login,
         Blog: response.data.blog,
