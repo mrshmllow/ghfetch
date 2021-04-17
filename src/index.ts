@@ -77,6 +77,17 @@ const ascii = await getImageStrings({ path: user.avatarUrl, width: 35 })
 
 const splitAscii = ascii[0].split(/\r\n|\n\r|\n|\r/)
 const spacing = "    "
+const userKeys = Object.keys(user)
+
+// Iterate user keys for some filtering
+for (let index = 0; index < userKeys.length; index++) {
+    // Remove empty points
+    console.log(userKeys[index])
+    if (user[userKeys[index]] === null || user[userKeys[index]] === "") {
+        userKeys.splice(index, 1)
+    }
+}
+
 for (let index = 0; index < splitAscii.length; index++) {
     const element = splitAscii[index]
     if (index === 0) { console.log(`${element}${spacing}${title}`); continue }
