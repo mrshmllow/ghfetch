@@ -5,12 +5,9 @@ import { getImageStrings } from "https://x.nest.land/terminal_images@3.0.0/mod.t
 // Fetch from args
 const username = Deno.args[0]
 
-// Base url
-const baseUrl = "https://api.github.com"
-
 let user
 
-// Fetch user info from github.com
+// Fetch user info from the internet
 if (username === undefined) {
     // Try to grab from `gh` tool
     try {
@@ -46,6 +43,16 @@ if (username === undefined) {
         Deno.exit()
     }
 } else {
+    // Base url
+    let baseUrl
+    if (Deno.args[1] !== undefined) {
+        // They want a custom api
+        baseUrl = Deno.args[1]
+    } else {
+        // Assume they just want api.github.com
+        baseUrl = "https://api.github.com"
+    }
+
     // Use octokitRequest if username isn't given
     const response = await octokitRequest.request(`get /users/${username}`, {baseUrl: baseUrl})
     user = {
