@@ -8,7 +8,8 @@ const { options } = await new Command()
     .option("-b, --base-url", "Set the base api url.", { default: "https://api.github.com" })
     .parse(Deno.args);
 
-    let user
+let user
+
 // Fetch user info from the internet
 if (options.username === undefined) {
     // Try to grab from `gh` tool
