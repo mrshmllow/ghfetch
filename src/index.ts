@@ -4,8 +4,8 @@ import { getImageStrings } from "https://x.nest.land/terminal_images@3.0.0/mod.t
 import { Command } from "https://deno.land/x/cliffy/command/mod.ts"
 
 const { options } = await new Command()
-    .option("-u, --username", "Set the username of the user you want to query.")
-    .option("-b, --base-url", "Set the base api url.", { default: "https://api.github.com" })
+    .option("-u, --username <string>", "Set the username of the user you want to query.")
+    .option("-b, --base-url <string>", "Set the base api url.", { default: "https://api.github.com" })
     .parse(Deno.args);
 
 let user
