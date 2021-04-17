@@ -67,6 +67,6 @@ const points = {
 console.log(`${title}\n${barrier}`)
 
 for (const [key, value] of Object.entries(points)) {
-    if (value === null) { continue }
+    if (value === null || value === "") { continue }
     console.log(`${color(key)}: ${value}`);
 }
