@@ -49,6 +49,7 @@ for (let index = 0; index < `${username}@${new URL(baseUrl).hostname}`.length; i
     barrier += `-`
 }
 
+// Generate points
 const points = {
     // Name not url
     "Name": user.name,
