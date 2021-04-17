@@ -4,7 +4,8 @@ GhFetch is a command-line tool to fetch information about your github account wr
 
 - [Getting it on your computer](https://github.com/bwac2517/ghfetch#getting-it-on-your-computer)
   - [Prerequisites](https://github.com/bwac2517/ghfetch#Prerequisites)
-  - [Installing with deno (Recommended)](https://github.com/bwac2517/ghfetch#installing-with-deno-recommended)
+  - [Installing](https://github.com/bwac2517/ghfetch#installing-with-deno-recommended)
+  - [Run without installing](https://github.com/bwac2517/ghfetch#run-it-directly-from-the-internet)
   - [Binaries](https://github.com/bwac2517/ghfetch#binaries)
 - [Permissions](https://github.com/bwac2517/ghfetch#permissions)
 
