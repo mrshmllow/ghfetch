@@ -33,4 +33,4 @@ The recommeneded [permissions](https://deno.land/manual@v1.9.0/getting_started/p
 
 `ghfetch` won't work without `--allow-net` and it won't be able to access your `gh` install without `--allow-run`.
 
-`ghfetch` also requires `--unstable`.
+`ghfetch` also requires [`--unstable`](https://deno.land/manual@v1.9.0/examples/os_signals#concepts).
