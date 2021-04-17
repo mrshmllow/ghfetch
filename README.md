@@ -14,7 +14,7 @@ GhFetch is a command-line tool to fetch information about your github account wr
 #### Good tools to have:
  - [The github CLI](https://cli.github.com/)
 
-RECOMMENEDED: run `gh auth login` and login. This is because `ghfetch` takes advantage of the [`gh api`](https://cli.github.com/manual/gh_api) command to provide a out-of-the-box experience.
+RECOMMENEDED: `$ gh auth login` and login. This is because `ghfetch` takes advantage of the [`gh api`](https://cli.github.com/manual/gh_api) command to provide a out-of-the-box experience.
 (If you dont want to let `ghfetch` call github on your behalf, you can always use the `--username` flag + dont provide `--allow-run` with deno.)
 
 #### Install
