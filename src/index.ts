@@ -1,6 +1,7 @@
 import * as Colors from 'https://deno.land/std/fmt/colors.ts'
 import { getImageStrings } from "https://x.nest.land/terminal_images@3.0.0/mod.ts"
 import { Command } from "https://deno.land/x/cliffy/command/mod.ts"
+import {Image} from 'https://deno.land/x/imagescript/mod.ts'
 import ky from 'https://cdn.skypack.dev/ky?dts';
 
 const { options } = await new Command()
@@ -74,8 +75,16 @@ for (let index = 1; index < `${options.username}@${new URL(options.baseUrl).host
     barrier += `-`
 }
 
+
+// Download image to memory
+const response = await ky.get(user.avatarUrl).blob()
+
+// Edit image to be round
+const image = await Image.decode(new Uint8Array(await response.arrayBuffer()))
+image.roundCorners(245)
+
 // Generate image ascii
-const ascii = await getImageStrings({ path: user.avatarUrl, width: 35 })
+const ascii = await getImageStrings({ rawFile: await image.encode(), width: 35 })
 
 const splitAscii = ascii[0].split(/\r\n|\n\r|\n|\r/)
 const spacing = "    "
