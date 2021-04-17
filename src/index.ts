@@ -75,7 +75,6 @@ for (let index = 1; index < `${username}@${new URL(baseUrl).hostname}`.length; i
 // Generate image ascii
 const ascii = await getImageStrings({ path: user.avatarUrl, width: 35 })
 
-// Draw to terminal
 const splitAscii = ascii[0].split(/\r\n|\n\r|\n|\r/)
 const spacing = "    "
 for (let index = 0; index < splitAscii.length; index++) {
