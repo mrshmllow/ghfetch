@@ -41,7 +41,7 @@ Check out the [persmissions section](https://github.com/bwac2517/ghfetch#permiss
 
 ### Binaries
 
-You could probably find some binaries for you to use at https://github.com/bwac2517/ghfetch/releases
+You could probably find some fancy binaries for you to use at https://github.com/bwac2517/ghfetch/releases
 
 ## Permissions
 
