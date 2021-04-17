@@ -37,13 +37,13 @@ if (options.username === undefined) {
             }
         } catch(err) {
             // They arent logged into GH
-            console.log(`${Colors.red("gh returned non-json.")}\n${Colors.yellow("Did you mean to use --username ?")}`)
+            console.log(`${Colors.red("gh returned non-json.")}\n${Colors.yellow("TIP: You can just use --username=[USERNAME] to fix this error")}`)
             console.log(err)
             Deno.exit()
         }
     } catch(err) {
         // gh isn't installed
-        console.log(`${Colors.red("No username was given, and gh is not installed (or we dont have permission to use it)")}\n${Colors.yellow("Did you mean to use --username ?")}`)
+        console.log(`${Colors.red("No username was given, and gh is not installed (or we dont have permission to use it)")}\n${Colors.yellow("If it is installed, you didn't run me with --allow-run ?")}\n${Colors.yellow("TIP: You can just use --username=[USERNAME] to fix this error")}`)
         console.log(err)
         Deno.exit()
     }
