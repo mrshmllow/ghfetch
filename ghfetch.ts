@@ -32,7 +32,7 @@ if (options.username === undefined) {
                 Gists: parsed.public_gists,
                 Location: parsed.location,
                 Repos: parsed.public_repos,
-                Twitter: parsed.twitter_username,
+                Twitter: `@${parsed.twitter_username}`,
                 avatarUrl: parsed.avatar_url
             }
         } catch(err) {
@@ -59,7 +59,7 @@ if (options.username === undefined) {
         Gists: data.public_gists,
         Location: data.location,
         Repos: data.public_repos,
-        Twitter: data.twitter_username,
+        Twitter: `@${data.twitter_username}`,
         avatarUrl: data.avatar_url
     }
 }
