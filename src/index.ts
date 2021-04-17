@@ -1,7 +1,7 @@
 import * as Colors from 'https://deno.land/std/fmt/colors.ts'
-import * as octokitRequest from 'https://cdn.skypack.dev/@octokit/request?dts';
-import { getImageStrings } from "https://x.nest.land/terminal_images@3.0.0/mod.ts";
-import { Command } from "https://deno.land/x/cliffy/command/mod.ts";
+import * as octokitRequest from 'https://cdn.skypack.dev/@octokit/request?dts'
+import { getImageStrings } from "https://x.nest.land/terminal_images@3.0.0/mod.ts"
+import { Command } from "https://deno.land/x/cliffy/command/mod.ts"
 
 const { options } = await new Command()
     .option("-u, --username", "Set the username of the user you want to query.")
