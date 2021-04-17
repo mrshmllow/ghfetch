@@ -67,7 +67,7 @@ if (username === undefined) {
     }
 }
 
-const color = Colors.blue
+const color = Colors.brightBlue
 
 // Create a title
 const title = `${color(user.Login)}@${color(new URL(baseUrl).hostname)}`
