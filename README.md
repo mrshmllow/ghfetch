@@ -27,8 +27,7 @@ RECOMMENDED: `$ gh auth login` and login. This is because `ghfetch` takes advant
 
 ### Portable Binaries
 
-Find some fancy auto-built binaries for you to use at https://github.com/bwac2517/ghfetch/releases!
-Loveingly created by a bot every
+Find some fancy binaries for you to use at https://github.com/bwac2517/ghfetch/releases!
 
 ### Installing with Deno (Recommended)
 
