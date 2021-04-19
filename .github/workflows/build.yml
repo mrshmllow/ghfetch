@@ -5,7 +5,6 @@ on:
     branches: [main]
     paths:
       - '**.ts'
-      - '.github/workflows/build.yml'
 
 jobs:
   build:
