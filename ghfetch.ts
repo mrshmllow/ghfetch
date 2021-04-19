@@ -6,7 +6,7 @@ import ky from 'https://cdn.skypack.dev/ky?dts';
 
 const { options } = await new Command()
     .version("1.0.0")
-    .option("-u, --username <string>", "Set the username of the user you want to query.")
+    .option("-u, --username <string>", "Set the username of the user.")
     .option("-b, --base-url <string>", "Set the base github api url.", { default: "https://api.github.com" })
     .parse(Deno.args);
 
