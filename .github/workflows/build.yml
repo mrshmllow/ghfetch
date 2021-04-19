@@ -6,11 +6,6 @@ on:
     paths:
       - '**.ts'
       - '.github/workflows/build.yml'
-  pull_request:
-    branches: [main]
-    paths:
-      - '**.ts'
-      - '.github/workflows/build.yml'
 
 jobs:
   build:
