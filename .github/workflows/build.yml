@@ -37,6 +37,7 @@ jobs:
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: true
+          automatic_release_tag: true
           files: |
             LICENSE
             ghfetch-windows-x86_64.exe
