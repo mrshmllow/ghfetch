@@ -22,7 +22,7 @@ jobs:
           deno-version: v1.x
 
       - name: Cache Dependencies
-        run: deno cache ghfetch.ts
+        run: deno cache --unstable ghfetch.ts
 
       - name: Build
         run: |
