@@ -6,9 +6,9 @@ Why? Because yes.
 
 - [Getting it on your computer](https://github.com/bwac2517/ghfetch#getting-it-on-your-computer)
   - [Prerequisites](https://github.com/bwac2517/ghfetch#Prerequisites)
+  - [Portable Binaries](https://github.com/bwac2517/ghfetch#portable-binaries)
   - [Installing](https://github.com/bwac2517/ghfetch#installing-with-deno-recommended)
   - [Run without installing](https://github.com/bwac2517/ghfetch#run-it-directly-from-the-internet)
-  - [Binaries](https://github.com/bwac2517/ghfetch#binaries)
 - [Permissions](https://github.com/bwac2517/ghfetch#permissions)
 
 ## Getting it on your computer
@@ -25,6 +25,11 @@ Why? Because yes.
 
 RECOMMENDED: `$ gh auth login` and login. This is because `ghfetch` takes advantage of the [`gh api`](https://cli.github.com/manual/gh_api) command to provide a out-of-the-box experience. (If you don't want to let `ghfetch` call Github on your behalf, you can always use the `--username` flag. Do be sure to see the [permissions section](https://github.com/bwac2517/ghfetch#permissions)!
 
+### Portable Binaries
+
+Find some fancy auto-built binaries for you to use at https://github.com/bwac2517/ghfetch/releases!
+Loveingly created by a bot every
+
 ### Installing with Deno (Recommended)
 
 #### Install
@@ -39,10 +44,6 @@ You can now use `ghfetch` if your Deno is correctly in your path.
 
 `$ deno run --unstable --allow-net --allow-run https://raw.githubusercontent.com/bwac2517/ghfetch/main/ghfetch.ts`
 Check out the [permissions section](https://github.com/bwac2517/ghfetch#permissions) for more info.
-
-### Binaries
-
-Find some fancy binaries for you to use at https://github.com/bwac2517/ghfetch/releases!
 
 ## Permissions
 
